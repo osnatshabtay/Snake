@@ -23,8 +23,10 @@ class Board:
         for i in range(self.rows):
             for j in range(self.rows):
                 self.cells[i][j].draw(screen)
-
-
+    
+    def change_color(self, row, col,new_color):
+        self.cells[row][col].set_color(new_color)
+         
 
 class Cell:
     def __init__(self, row, col, width):
