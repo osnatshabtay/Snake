@@ -20,18 +20,25 @@ class Board:
 
     def draw(self,screen):
         screen.fill(EMPTY)
+
         for i in range(self.rows):
             for j in range(self.rows):
                 self.cells[i][j].draw(screen)
+        
+        pygame.display.update()
     
-    def change_color(self, row, col,new_color):
+    def change_color(self, row, col,new_color): 
         self.cells[row][col].set_color(new_color)
+
+    def get_color(self,row,col):
+        return self.cells[row][col].get_color()
+
          
 
 class Cell:
     def __init__(self, row, col, width):
         self.x = row * width
-        self.y = col * width
+        self.y = col * width 
         self.color = EMPTY
         self.width = width
 
@@ -40,3 +47,6 @@ class Cell:
 
     def set_color(self, new_color):
         self.color = new_color
+    
+    def get_color(self): 
+        return self.color
